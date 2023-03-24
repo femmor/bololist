@@ -2,7 +2,13 @@ import {Pressable, Text, View} from 'react-native';
 import {useState} from 'react';
 import styles from './styles';
 
-import {AuthHeader, Button, Checkbox, Input} from '../../../components';
+import {
+  AuthHeader,
+  Button,
+  Checkbox,
+  Input,
+  Separator,
+} from '../../../components';
 
 const SignUp = () => {
   const [checked, setChecked] = useState(false);
@@ -35,6 +41,7 @@ const SignUp = () => {
           marginVertical: 20,
         }}
       />
+      <Separator title="Or sign up with" />
     </View>
   );
 };
