@@ -5,7 +5,10 @@ import {SignUp, SplashScreen} from './src/screens';
 const App = () => {
   return (
     <SafeAreaView>
-      <View>
+      <View
+        style={{
+          margin: 20,
+        }}>
         {/* <SplashScreen /> */}
         <SignUp />
       </View>

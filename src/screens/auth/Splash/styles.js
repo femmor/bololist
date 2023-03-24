@@ -3,7 +3,6 @@ import {colors} from '../../../utils/colors';
 
 export default StyleSheet.create({
   container: {
-    margin: 10,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
