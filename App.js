@@ -1,12 +1,13 @@
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
-import {SplashScreen} from './src/screens';
+import {SignUp, SplashScreen} from './src/screens';
 
 const App = () => {
   return (
     <SafeAreaView>
       <View>
-        <SplashScreen />
+        {/* <SplashScreen /> */}
+        <SignUp />
       </View>
     </SafeAreaView>
   );
