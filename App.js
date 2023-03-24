@@ -1,11 +1,12 @@
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
+import {SplashScreen} from './src/screens';
 
 const App = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>Home</Text>
+        <SplashScreen />
       </View>
     </SafeAreaView>
   );
