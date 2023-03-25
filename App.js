@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
-import {SignUp, SplashScreen} from './src/screens';
+import {SignIn, SignUp, SplashScreen} from './src/screens';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Config from 'react-native-config';
 
@@ -24,7 +24,8 @@ const App = () => {
           margin: 20,
         }}>
         {/* <SplashScreen /> */}
-        <SignUp />
+        {/* <SignUp /> */}
+        <SignIn />
       </ScrollView>
     </SafeAreaView>
   );
