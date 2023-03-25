@@ -36,5 +36,3 @@ const GoogleLogin = () => {
   );
 };
 export default GoogleLogin;
-
-// AIzaSyDqWg9IY1SgZdb6jNw7Se2ds3YTYXGn6zM

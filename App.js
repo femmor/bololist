@@ -1,15 +1,11 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {SignUp, SplashScreen} from './src/screens';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import Config from 'react-native-config';
 
-const WEB_CLIENT_ID =
-  '187197711864-f03ht07l47rgvpg29vifb8ct9o404l83.apps.googleusercontent.com';
-
-const IOS_CLIENT_ID =
-  '187197711864-8mk5ijqsofqchp19pedpq62mf38r20gf.apps.googleusercontent.com';
-const REVERSED_IOS_CLIENT_ID =
-  'com.googleusercontent.apps.187197711864-8mk5ijqsofqchp19pedpq62mf38r20gf';
+const WEB_CLIENT_ID = Config.GOOGLE_WEB_CLIENT_ID;
+const IOS_CLIENT_ID = Config.IOS_CLIENT_ID;
 
 const App = () => {
   useEffect(() => {
@@ -23,13 +19,13 @@ const App = () => {
 
   return (
     <SafeAreaView>
-      <View
+      <ScrollView
         style={{
           margin: 20,
         }}>
         {/* <SplashScreen /> */}
         <SignUp />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
