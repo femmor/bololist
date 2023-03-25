@@ -5,3 +5,5 @@ Bololist is a product catalogue mobile application. It is available on Android a
 ## Features
 
 ### Authentication
+
+- User can login using google sign in
