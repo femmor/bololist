@@ -8,4 +8,6 @@ export const colors = {
   black: '#000',
   purple: '#5941a9',
   darkPurple: '#1d1128',
+  googleRed: '#C64B36',
+  googleBlue: '#4081EC',
 };

@@ -6,6 +6,7 @@ import {
   AuthHeader,
   Button,
   Checkbox,
+  GoogleLogin,
   Input,
   Separator,
 } from '../../../components';
@@ -42,6 +43,7 @@ const SignUp = () => {
         }}
       />
       <Separator title="Or sign up with" />
+      <GoogleLogin />
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {View, Text, TextInput, Pressable, Image} from 'react-native';
 import styles from './styles';
 
@@ -6,17 +6,11 @@ import eyeIcon from '../../assets/icons/eye.png';
 import eyeOffIcon from '../../assets/icons/hide-eye.png';
 
 const Input = ({label, placeholder, isPassword}) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(true);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
-
-  useEffect(() => {
-    if (isPassword) {
-      setIsPasswordVisible(false);
-    }
-  }, []);
 
   return (
     <View style={styles.container}>
