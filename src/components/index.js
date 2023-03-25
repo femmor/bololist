@@ -4,3 +4,4 @@ export {default as Input} from './Input';
 export {default as Checkbox} from './Checkbox';
 export {default as Separator} from './Separator';
 export {default as GoogleLogin} from './GoogleLogin';
+export {default as AuthFooter} from './AuthFooter';

@@ -3,6 +3,7 @@ import {useState} from 'react';
 import styles from './styles';
 
 import {
+  AuthFooter,
   AuthHeader,
   Button,
   Checkbox,
@@ -20,7 +21,10 @@ const SignUp = () => {
 
   return (
     <View style={styles.container}>
-      <AuthHeader title="Sign Up" onBackPress={() => {}} />
+      <AuthHeader
+        title="Sign Up"
+        onBackPress={() => console.log('back icon pressed!')}
+      />
       <Input label="Email" placeholder="Enter your email" type="text" />
       <Input label="Name" placeholder="Enter your name" type="text" />
       <Input label="Password" placeholder="********" isPassword />
@@ -44,6 +48,12 @@ const SignUp = () => {
       />
       <Separator title="Or sign up with" />
       <GoogleLogin />
+
+      <AuthFooter
+        titleText="Already have an account?"
+        linkText="Sign In"
+        onPress={() => console.log('sign in link pressed!')}
+      />
     </View>
   );
 };
