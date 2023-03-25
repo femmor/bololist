@@ -1,20 +1,18 @@
-import {Pressable, Text, View} from 'react-native';
-import {useState} from 'react';
+import {View} from 'react-native';
 import styles from './styles';
 
 import {
   AuthFooter,
   AuthHeader,
   Button,
-  Checkbox,
   GoogleLogin,
   Input,
   Separator,
 } from '../../../components';
 
 const SignIn = () => {
-  const onCheck = () => {
-    setChecked(!checked);
+  const onSignIn = () => {
+    console.log('sign in button pressed!');
   };
 
   return (
