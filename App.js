@@ -6,6 +6,7 @@ import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {SignIn, SignUp, SplashScreen} from './src/screens';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Config from 'react-native-config';
+import {colors} from './src/utils/colors';
 
 const WEB_CLIENT_ID = Config.GOOGLE_WEB_CLIENT_ID;
 const IOS_CLIENT_ID = Config.IOS_CLIENT_ID;
@@ -22,8 +23,15 @@ const App = () => {
     });
   }, []);
 
+  const theme = {
+    dark: false,
+    colors: {
+      background: colors.white,
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <Stack.Navigator>
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="SignIn" component={SignIn} />
