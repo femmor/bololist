@@ -5,11 +5,11 @@ import styles from './styles';
 import splashImg from '../../../assets/images/splash-screen.png';
 
 const Splash = () => {
-  const onButtonPress = () => {
-    console.log('Button Pressed');
+  const onSignIn = () => {
+    console.log('Sign in Pressed');
   };
   const onSignUp = () => {
-    console.log('Link Pressed');
+    console.log('Sign up Pressed');
   };
 
   return (
@@ -20,8 +20,13 @@ const Splash = () => {
         <Text style={styles.textHighlight}>All you need</Text>
         <Text style={styles.text}>Here!</Text>
       </View>
-      <Button title="Test Button" onButtonPress={onButtonPress} />
-      <Pressable hitSlop={10} onPress={onSignUp}>
+      <Button title="Sign In" onPress={onSignIn} />
+      <Pressable
+        hitSlop={10}
+        onPress={onSignUp}
+        style={{
+          marginTop: 10,
+        }}>
         <Text style={styles.footerText}>Sign Up</Text>
       </Pressable>
     </View>

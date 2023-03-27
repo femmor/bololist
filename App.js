@@ -1,4 +1,7 @@
 import React, {useEffect} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {SignIn, SignUp, SplashScreen} from './src/screens';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
@@ -6,6 +9,8 @@ import Config from 'react-native-config';
 
 const WEB_CLIENT_ID = Config.GOOGLE_WEB_CLIENT_ID;
 const IOS_CLIENT_ID = Config.IOS_CLIENT_ID;
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   useEffect(() => {
@@ -18,16 +23,13 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <ScrollView
-        style={{
-          margin: 20,
-        }}>
-        {/* <SplashScreen /> */}
-        {/* <SignUp /> */}
-        <SignIn />
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
