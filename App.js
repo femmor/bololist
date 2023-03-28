@@ -1,6 +1,10 @@
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {SignIn, SignUp, SplashScreen} from './src/screens';
@@ -31,13 +35,33 @@ const App = () => {
   };
 
   return (
-    <NavigationContainer theme={theme}>
-      <Stack.Navigator>
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer theme={theme}>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="splash"
+            component={SplashScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="signin"
+            component={SignIn}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="signup"
+            component={SignUp}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

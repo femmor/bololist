@@ -1,4 +1,4 @@
-import {Pressable, Text, View} from 'react-native';
+import {Pressable, ScrollView, Text, View} from 'react-native';
 import {useState} from 'react';
 import styles from './styles';
 
@@ -11,8 +11,9 @@ import {
   Input,
   Separator,
 } from '../../../components';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [checked, setChecked] = useState(false);
 
   const onCheck = () => {
@@ -20,41 +21,42 @@ const SignUp = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <AuthHeader
-        title="Sign Up"
-        onBackPress={() => console.log('back icon pressed!')}
-      />
-      <Input label="Email" placeholder="Enter your email" type="text" />
-      <Input label="Name" placeholder="Enter your name" type="text" />
-      <Input label="Password" placeholder="********" isPassword />
-      <View style={styles.termsContainer}>
-        <Checkbox checked={checked} onCheck={onCheck} />
-        <View style={styles.terms}>
-          <Text>I agree with the</Text>
-          <Pressable
-            style={styles.termsText}
-            onPress={() => console.log('terms and privacy pressed!')}>
-            <Text>Terms and Privacy.</Text>
-          </Pressable>
-        </View>
-      </View>
-      <Button
-        title="Sign Up"
-        onPress={() => console.log('sign up button pressed!')}
-        style={{
-          marginVertical: 20,
-        }}
-      />
-      <Separator title="Or sign up with" />
-      <GoogleLogin />
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.container}>
+          <AuthHeader title="Sign Up" onPress={() => navigation.goBack()} />
+          <Input label="Email" placeholder="Enter your email" type="text" />
+          <Input label="Name" placeholder="Enter your name" type="text" />
+          <Input label="Password" placeholder="********" isPassword />
+          <View style={styles.termsContainer}>
+            <Checkbox checked={checked} onCheck={onCheck} />
+            <View style={styles.terms}>
+              <Text>I agree with the</Text>
+              <Pressable
+                style={styles.termsText}
+                onPress={() => console.log('terms and privacy pressed!')}>
+                <Text>Terms and Privacy.</Text>
+              </Pressable>
+            </View>
+          </View>
+          <Button
+            title="Sign Up"
+            onPress={() => console.log('sign up button pressed!')}
+            style={{
+              marginVertical: 20,
+            }}
+          />
+          <Separator title="Or sign up with" />
+          <GoogleLogin />
 
-      <AuthFooter
-        titleText="Already have an account?"
-        linkText="Sign In"
-        onPress={() => console.log('sign in link pressed!')}
-      />
-    </View>
+          <AuthFooter
+            titleText="Already have an account?"
+            linkText="Sign In"
+            onPress={() => navigation.navigate('signin')}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 export default SignUp;
