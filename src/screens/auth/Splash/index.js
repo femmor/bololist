@@ -7,10 +7,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Splash = ({navigation}) => {
   const onSignIn = () => {
-    navigation.navigate('signin');
+    navigation.navigate('SignIn');
   };
   const onSignUp = () => {
-    navigation.navigate('signup');
+    navigation.navigate('SignUp');
   };
 
   return (

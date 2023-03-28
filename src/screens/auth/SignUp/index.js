@@ -52,7 +52,7 @@ const SignUp = ({navigation}) => {
           <AuthFooter
             titleText="Already have an account?"
             linkText="Sign In"
-            onPress={() => navigation.navigate('signin')}
+            onPress={() => navigation.navigate('Signin')}
           />
         </View>
       </ScrollView>
