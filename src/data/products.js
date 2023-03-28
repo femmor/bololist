@@ -12,7 +12,7 @@ export const products = [
     title: 'Wood Mini Table',
     image:
       'https://ii1.pepperfry.com/media/catalog/product/f/o/800x880/foldable-table-in-natural-colour-by-clasicraft-foldable-table-in-natural-colour-by-clasicraft-ahmtub.jpg',
-    category: 2,
+    category: 3,
     price: '$ 25.00',
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     title: 'Luxe Yellow Armchair',
     image:
       'https://www.woods-furniture.co.uk/images/products/standard/7706_8118.jpg',
-    category: 3,
+    category: 2,
     price: '$ 45.00',
   },
   {

@@ -13,6 +13,8 @@ import {products} from '../../../data/products';
 const Home = ({navigation}) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [filteredProduct, setFilteredProduct] = useState(products);
+  const [keyword, setKeyword] = useState('');
 
   const toggleSearchInput = () => {
     setShowSearchInput(!showSearchInput);
@@ -32,6 +34,36 @@ const Home = ({navigation}) => {
     return <ProductHomeItem item={item} />;
   };
 
+  const onSearch = text => {
+    setKeyword(text);
+  };
+
+  // Filter products by category
+  useEffect(() => {
+    const updateProducts = products.filter(
+      product => product?.category === selectedCategory,
+    );
+
+    if (selectedCategory) {
+      setFilteredProduct(updateProducts);
+    } else {
+      setFilteredProduct(products);
+    }
+  }, [selectedCategory]);
+
+  // Filter products by keyword
+  useEffect(() => {
+    const updateProducts = products.filter(product =>
+      product?.title.toLowerCase().includes(keyword.toLowerCase()),
+    );
+
+    if (keyword) {
+      setFilteredProduct(updateProducts);
+    } else {
+      setFilteredProduct(filteredProduct);
+    }
+  }, [keyword]);
+
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -44,7 +76,11 @@ const Home = ({navigation}) => {
           />
           <View style={styles.searchInputContainer}>
             {showSearchInput ? (
-              <Input placeholder="Search for items and more..." />
+              <Input
+                placeholder="Search for items and more..."
+                onChangeText={onSearch}
+                value={keyword}
+              />
             ) : null}
           </View>
           <FlatList
@@ -57,7 +93,7 @@ const Home = ({navigation}) => {
             contentContainerStyle={styles.categoriesListContentContainer}
           />
           <FlatList
-            data={products}
+            data={filteredProduct}
             renderItem={renderProductItem}
             keyExtractor={(item, idx) => idx.toString()}
             style={styles.productList}
