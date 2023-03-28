@@ -12,13 +12,20 @@ import {products} from '../../../data/products';
 
 const Home = ({navigation}) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const toggleSearchInput = () => {
     setShowSearchInput(!showSearchInput);
   };
 
   const renderCategoryItem = ({item}) => {
-    return <Category item={item} />;
+    return (
+      <Category
+        item={item}
+        onPress={() => setSelectedCategory(item?.id)}
+        isSelected={item?.id === selectedCategory}
+      />
+    );
   };
 
   const renderProductItem = ({item}) => {
