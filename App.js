@@ -1,13 +1,44 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
-import {SignIn, SignUp, SplashScreen} from './src/screens';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+
+import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {
+  Favorite,
+  Home,
+  Profile,
+  SignIn,
+  SignUp,
+  SplashScreen,
+} from './src/screens';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Config from 'react-native-config';
+import {colors} from './src/utils/colors';
 
+// Icons
+import homeOutline from './src/assets/icons/home_outline.png';
+import homeSolid from './src/assets/icons/home.png';
+import userOutline from './src/assets/icons/user_outline.png';
+import userSolid from './src/assets/icons/user_solid.png';
+import favoriteOutline from './src/assets/icons/favorite_outline.png';
+import favoriteSolid from './src/assets/icons/favorite_solid.png';
+
+// Google Signin Credentials
 const WEB_CLIENT_ID = Config.GOOGLE_WEB_CLIENT_ID;
 const IOS_CLIENT_ID = Config.IOS_CLIENT_ID;
 
+// Navigation config
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
 const App = () => {
+  const isSignedIn = true;
+
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
@@ -17,17 +48,80 @@ const App = () => {
     });
   }, []);
 
+  const theme = {
+    dark: false,
+    colors: {
+      background: colors.white,
+    },
+  };
+
   return (
-    <SafeAreaView>
-      <ScrollView
-        style={{
-          margin: 20,
-        }}>
-        {/* <SplashScreen /> */}
-        {/* <SignUp /> */}
-        <SignIn />
-      </ScrollView>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <NavigationContainer theme={theme}>
+        {isSignedIn ? (
+          <Tab.Navigator
+            screenOptions={({route}) => ({
+              tabBarIcon: ({focused, color, size}) => {
+                let icon;
+
+                if (route.name === 'Home') {
+                  icon = focused ? homeSolid : homeOutline;
+                } else if (route.name === 'Profile') {
+                  icon = focused ? userSolid : userOutline;
+                } else if (route.name === 'Favorite') {
+                  icon = focused ? favoriteSolid : favoriteOutline;
+                }
+
+                // You can return any component that you like here!
+                return (
+                  <Image
+                    source={icon}
+                    style={{
+                      width: 20,
+                      height: 20,
+                    }}
+                  />
+                );
+              },
+              tabBarActiveTintColor: colors.primary,
+              tabBarInactiveTintColor: colors.darkGray,
+              tabBarShowLabel: false,
+              tabBarStyle: {
+                borderTopColor: colors.lightGray,
+              },
+              headerShown: false,
+            })}>
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Favorite" component={Favorite} />
+            <Tab.Screen name="Profile" component={Profile} />
+          </Tab.Navigator>
+        ) : (
+          <Stack.Navigator initialRouteName="Splash">
+            <Stack.Screen
+              name="Splash"
+              component={SplashScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="SignIn"
+              component={SignIn}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUp}
+              options={{
+                headerShown: false,
+              }}
+            />
+          </Stack.Navigator>
+        )}
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

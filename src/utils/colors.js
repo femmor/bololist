@@ -5,9 +5,11 @@ export const colors = {
   lightGray: '#8D9BB5',
   darkGray: '#514f59',
   white: '#fff',
+  gray: '#eee',
   black: '#000',
   purple: '#5941a9',
   darkPurple: '#1d1128',
   googleRed: '#C64B36',
   googleBlue: '#4081EC',
+  textGray: '#606060',
 };

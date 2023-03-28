@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import styles from './styles';
 
 import {
@@ -9,37 +9,44 @@ import {
   Input,
   Separator,
 } from '../../../components';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   const onSignIn = () => {
     console.log('sign in button pressed!');
   };
 
   return (
-    <View style={styles.container}>
-      <AuthHeader
-        title="Sign In"
-        onBackPress={() => console.log('back icon pressed!')}
-      />
-      <Input label="Email" placeholder="Enter your email" type="text" />
-      <Input label="Password" placeholder="********" isPassword />
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.container}>
+          <AuthHeader title="Sign In" onPress={() => navigation.goBack()} />
+          <Input
+            label="Email"
+            placeholder="Enter your email"
+            type="text"
+            showLabel
+          />
+          <Input label="Password" placeholder="********" isPassword showLabel />
 
-      <Button
-        title="Sign In"
-        onPress={() => console.log('sign in button pressed!')}
-        style={{
-          marginVertical: 20,
-        }}
-      />
-      <Separator title="Or sign up with" />
-      <GoogleLogin />
+          <Button
+            title="Sign In"
+            onPress={() => console.log('sign in button pressed!')}
+            style={{
+              marginVertical: 20,
+            }}
+          />
+          <Separator title="Or sign up with" />
+          <GoogleLogin />
 
-      <AuthFooter
-        titleText="Don't have an account?"
-        linkText="Sign Up"
-        onPress={() => console.log('sign up link pressed!')}
-      />
-    </View>
+          <AuthFooter
+            titleText="Don't have an account?"
+            linkText="Sign Up"
+            onPress={() => navigation.navigate('SignUp')}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 export default SignIn;

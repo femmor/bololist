@@ -5,7 +5,14 @@ import styles from './styles';
 import eyeIcon from '../../assets/icons/eye.png';
 import eyeOffIcon from '../../assets/icons/hide-eye.png';
 
-const Input = ({label, placeholder, isPassword}) => {
+const Input = ({
+  label,
+  placeholder,
+  isPassword,
+  showLabel,
+  value,
+  onChangeText,
+}) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -14,7 +21,7 @@ const Input = ({label, placeholder, isPassword}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      {showLabel ? <Text style={styles.label}>{label}</Text> : null}
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -22,6 +29,8 @@ const Input = ({label, placeholder, isPassword}) => {
           isPassword={isPassword}
           secureTextEntry={isPassword && !isPasswordVisible}
           togglePasswordVisibility={togglePasswordVisibility}
+          value={value}
+          onChangeText={onChangeText}
         />
         {isPassword ? (
           <Pressable

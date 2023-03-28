@@ -3,7 +3,8 @@ import {colors} from '../../utils/colors';
 
 export default styles = StyleSheet.create({
   container: {
-    marginBottom: 16,
+    marginBottom: 10,
+    marginHorizontal: 10,
   },
   label: {
     fontSize: 14,
@@ -13,10 +14,10 @@ export default styles = StyleSheet.create({
   },
   inputContainer: {
     borderWidth: 1,
-    borderColor: colors.lightGray,
+    borderColor: colors.primary,
     paddingHorizontal: 8,
     paddingVertical: 8,
-    borderRadius: 8,
+    borderRadius: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

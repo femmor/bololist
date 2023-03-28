@@ -5,3 +5,6 @@ export {default as Checkbox} from './Checkbox';
 export {default as Separator} from './Separator';
 export {default as GoogleLogin} from './GoogleLogin';
 export {default as AuthFooter} from './AuthFooter';
+export {default as AppHeader} from './AppHeader';
+export {default as Category} from './Category';
+export {default as ProductHomeItem} from './ProductHomeItem';
