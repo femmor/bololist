@@ -7,6 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginTop: 30,
     marginBottom: 20,
+    paddingHorizontal: 10,
   },
   image: {
     width: 18,
