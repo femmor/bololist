@@ -6,22 +6,12 @@ import {View, Text} from 'react-native';
 import styles from './styles';
 import {AppHeader, Input} from '../../../components';
 import searchIcon from '../../../assets/icons/search.png';
-import * as Animatable from 'react-native-animatable';
 
 const Home = ({navigation}) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
 
   const toggleSearchInput = () => {
     setShowSearchInput(!showSearchInput);
-  };
-
-  const fadeIn = {
-    from: {
-      opacity: 0,
-    },
-    to: {
-      opacity: 1,
-    },
   };
 
   return (
@@ -34,13 +24,11 @@ const Home = ({navigation}) => {
             leftIcon={searchIcon}
             showLeftIcon
           />
-          <Animatable.View
-            style={styles.searchInputContainer}
-            animation={fadeIn}>
+          <View style={styles.searchInputContainer}>
             {showSearchInput ? (
               <Input placeholder="Search for items and more..." />
             ) : null}
-          </Animatable.View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
