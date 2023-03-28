@@ -25,9 +25,19 @@ const SignUp = ({navigation}) => {
       <ScrollView>
         <View style={styles.container}>
           <AuthHeader title="Sign Up" onPress={() => navigation.goBack()} />
-          <Input label="Email" placeholder="Enter your email" type="text" />
-          <Input label="Name" placeholder="Enter your name" type="text" />
-          <Input label="Password" placeholder="********" isPassword />
+          <Input
+            label="Email"
+            placeholder="Enter your email"
+            type="text"
+            showLabel
+          />
+          <Input
+            label="Name"
+            placeholder="Enter your name"
+            type="text"
+            showLabel
+          />
+          <Input label="Password" placeholder="********" isPassword showLabel />
           <View style={styles.termsContainer}>
             <Checkbox checked={checked} onCheck={onCheck} />
             <View style={styles.terms}>
@@ -52,7 +62,7 @@ const SignUp = ({navigation}) => {
           <AuthFooter
             titleText="Already have an account?"
             linkText="Sign In"
-            onPress={() => navigation.navigate('Signin')}
+            onPress={() => navigation.navigate('SignIn')}
           />
         </View>
       </ScrollView>

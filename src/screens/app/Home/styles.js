@@ -5,4 +5,5 @@ export default StyleSheet.create({
     height: '100%',
     paddingHorizontal: 20,
   },
+  searchInputContainer: {},
 });

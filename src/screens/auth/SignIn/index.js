@@ -21,8 +21,13 @@ const SignIn = ({navigation}) => {
       <ScrollView>
         <View style={styles.container}>
           <AuthHeader title="Sign In" onPress={() => navigation.goBack()} />
-          <Input label="Email" placeholder="Enter your email" type="text" />
-          <Input label="Password" placeholder="********" isPassword />
+          <Input
+            label="Email"
+            placeholder="Enter your email"
+            type="text"
+            showLabel
+          />
+          <Input label="Password" placeholder="********" isPassword showLabel />
 
           <Button
             title="Sign In"
@@ -37,7 +42,7 @@ const SignIn = ({navigation}) => {
           <AuthFooter
             titleText="Don't have an account?"
             linkText="Sign Up"
-            onPress={() => navigation.navigate('Signup')}
+            onPress={() => navigation.navigate('SignUp')}
           />
         </View>
       </ScrollView>
