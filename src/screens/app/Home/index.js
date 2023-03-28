@@ -8,9 +8,7 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View style={styles.container}>
-          <Text>Homepage</Text>
-        </View>
+        <View style={styles.container}></View>
       </ScrollView>
     </SafeAreaView>
   );
