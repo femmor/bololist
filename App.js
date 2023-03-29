@@ -2,12 +2,9 @@ import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {Image} from 'react-native';
 import {
   Favorite,
   Home,
@@ -36,6 +33,45 @@ const IOS_CLIENT_ID = Config.IOS_CLIENT_ID;
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const Tabs = () => (
+  <Tab.Navigator
+    screenOptions={({route}) => ({
+      tabBarIcon: ({focused, color, size}) => {
+        let icon;
+
+        if (route.name === 'Home') {
+          icon = focused ? homeSolid : homeOutline;
+        } else if (route.name === 'Profile') {
+          icon = focused ? userSolid : userOutline;
+        } else if (route.name === 'Favorite') {
+          icon = focused ? favoriteSolid : favoriteOutline;
+        }
+
+        // You can return any component that you like here!
+        return (
+          <Image
+            source={icon}
+            style={{
+              width: 20,
+              height: 20,
+            }}
+          />
+        );
+      },
+      tabBarActiveTintColor: colors.primary,
+      tabBarInactiveTintColor: colors.darkGray,
+      tabBarShowLabel: false,
+      tabBarStyle: {
+        borderTopColor: colors.lightGray,
+      },
+      headerShown: false,
+    })}>
+    <Tab.Screen name="Home" component={Home} />
+    <Tab.Screen name="Favorite" component={Favorite} />
+    <Tab.Screen name="Profile" component={Profile} />
+  </Tab.Navigator>
+);
+
 const App = () => {
   const isSignedIn = true;
 
@@ -58,68 +94,43 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={theme}>
-        {isSignedIn ? (
-          <Tab.Navigator
-            screenOptions={({route}) => ({
-              tabBarIcon: ({focused, color, size}) => {
-                let icon;
-
-                if (route.name === 'Home') {
-                  icon = focused ? homeSolid : homeOutline;
-                } else if (route.name === 'Profile') {
-                  icon = focused ? userSolid : userOutline;
-                } else if (route.name === 'Favorite') {
-                  icon = focused ? favoriteSolid : favoriteOutline;
-                }
-
-                // You can return any component that you like here!
-                return (
-                  <Image
-                    source={icon}
-                    style={{
-                      width: 20,
-                      height: 20,
-                    }}
-                  />
-                );
-              },
-              tabBarActiveTintColor: colors.primary,
-              tabBarInactiveTintColor: colors.darkGray,
-              tabBarShowLabel: false,
-              tabBarStyle: {
-                borderTopColor: colors.lightGray,
-              },
-              headerShown: false,
-            })}>
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Favorite" component={Favorite} />
-            <Tab.Screen name="Profile" component={Profile} />
-          </Tab.Navigator>
-        ) : (
-          <Stack.Navigator initialRouteName="Splash">
-            <Stack.Screen
-              name="Splash"
-              component={SplashScreen}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="SignIn"
-              component={SignIn}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="SignUp"
-              component={SignUp}
-              options={{
-                headerShown: false,
-              }}
-            />
-          </Stack.Navigator>
-        )}
+        <Stack.Navigator initialRouteName="Splash">
+          {isSignedIn ? (
+            <>
+              <Stack.Screen
+                name="Tabs"
+                component={Tabs}
+                options={{
+                  headerShown: false,
+                }}
+              />
+            </>
+          ) : (
+            <>
+              <Stack.Screen
+                name="Splash"
+                component={SplashScreen}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="SignIn"
+                component={SignIn}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="SignUp"
+                component={SignUp}
+                options={{
+                  headerShown: false,
+                }}
+              />
+            </>
+          )}
+        </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
   );

@@ -4,3 +4,4 @@ export {default as SignIn} from './auth/SignIn';
 export {default as Home} from './app/Home';
 export {default as Profile} from './app/Profile';
 export {default as Favorite} from './app/Favorite';
+export {default as ProductDetails} from './app/ProductDetails';
