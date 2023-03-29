@@ -7,7 +7,7 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 8,
     backgroundColor: colors.primary,
-    width: '100%',
+    flex: 1,
   },
   title: {
     fontSize: 16,

@@ -1,7 +1,62 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const {height} = Dimensions.get('window');
+
+import {colors} from '../../../utils/colors';
 
 export default StyleSheet.create({
-  container: {
-    paddingHorizontal: 20,
+  safe: {
+    flex: 1,
+  },
+  container: {},
+  image: {
+    width: '100%',
+    height: height * 0.4,
+  },
+  content: {
+    paddingHorizontal: 24,
+    backgroundColor: colors.white,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    marginTop: -40,
+  },
+  title: {
+    marginTop: 40,
+    fontSize: 24,
+    fontWeight: 500,
+  },
+  price: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginVertical: 8,
+  },
+  desc: {
+    fontSize: 12,
+    fontWeight: 300,
+    color: colors.textGray,
+    marginVertical: 8,
+  },
+  footer: {
+    padding: 24,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 12,
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 1,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  favorite: {
+    backgroundColor: colors.gray,
+    padding: 11,
+    borderRadius: 8,
+  },
+  heart: {
+    width: 30,
+    height: 30,
   },
 });

@@ -23,7 +23,13 @@ const Splash = ({navigation}) => {
             <Text style={styles.textHighlight}>All you need</Text>
             <Text style={styles.text}>Here!</Text>
           </View>
-          <Button title="Sign In" onPress={onSignIn} />
+          <View
+            style={{
+              width: '100%',
+              flexDirection: 'row',
+            }}>
+            <Button title="Sign In" onPress={onSignIn} />
+          </View>
           <Pressable
             hitSlop={10}
             onPress={onSignUp}

@@ -7,6 +7,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    height: '100%',
   },
   splashImg: {
     width: '100%',

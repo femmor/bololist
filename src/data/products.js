@@ -6,6 +6,7 @@ export const products = [
       'https://grandrapidschair.com/wp-content/uploads/2016/01/250_Brady_Graphite_Honey-1.jpg',
     category: 1,
     price: '$ 20.00',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sed inventore deserunt fugiat quidem id qui dignissimos saepe corrupti culpa, explicabo cumque eum unde ducimus ullam maxime nulla eos! Aut, eveniet? Neque quae, amet, rerum necessitatibus totam recusandae magni sed cupiditate reprehenderit, laudantium iure omnis reiciendis enim deserunt blanditiis repellendus.',
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const products = [
       'https://ii1.pepperfry.com/media/catalog/product/f/o/800x880/foldable-table-in-natural-colour-by-clasicraft-foldable-table-in-natural-colour-by-clasicraft-ahmtub.jpg',
     category: 3,
     price: '$ 25.00',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sed inventore deserunt fugiat quidem id qui dignissimos saepe corrupti culpa, explicabo cumque eum unde ducimus ullam maxime nulla eos! Aut, eveniet? Neque quae, amet, rerum necessitatibus totam recusandae magni sed cupiditate reprehenderit, laudantium iure omnis reiciendis enim deserunt blanditiis repellendus.',
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const products = [
       'https://www.woods-furniture.co.uk/images/products/standard/7706_8118.jpg',
     category: 2,
     price: '$ 45.00',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sed inventore deserunt fugiat quidem id qui dignissimos saepe corrupti culpa, explicabo cumque eum unde ducimus ullam maxime nulla eos! Aut, eveniet? Neque quae, amet, rerum necessitatibus totam recusandae magni sed cupiditate reprehenderit, laudantium iure omnis reiciendis enim deserunt blanditiis repellendus.',
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const products = [
       'https://cdn.shopify.com/s/files/1/0079/2539/9616/products/myakka-chairs-jalkamal-block-print-footstool-28730051264703_2000x.jpg?v=1629217511',
     category: 3,
     price: '$ 80.00',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sed inventore deserunt fugiat quidem id qui dignissimos saepe corrupti culpa, explicabo cumque eum unde ducimus ullam maxime nulla eos! Aut, eveniet? Neque quae, amet, rerum necessitatibus totam recusandae magni sed cupiditate reprehenderit, laudantium iure omnis reiciendis enim deserunt blanditiis repellendus.',
   },
   {
     id: 5,
@@ -43,5 +47,6 @@ export const products = [
     ],
     category: 4,
     price: '$ 120.00',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sed inventore deserunt fugiat quidem id qui dignissimos saepe corrupti culpa, explicabo cumque eum unde ducimus ullam maxime nulla eos! Aut, eveniet? Neque quae, amet, rerum necessitatibus totam recusandae magni sed cupiditate reprehenderit, laudantium iure omnis reiciendis enim deserunt blanditiis repellendus.',
   },
 ];
