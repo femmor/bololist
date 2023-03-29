@@ -8,6 +8,7 @@ import {Image} from 'react-native';
 import {
   Favorite,
   Home,
+  ProductDetails,
   Profile,
   SignIn,
   SignUp,
@@ -100,6 +101,13 @@ const App = () => {
               <Stack.Screen
                 name="Tabs"
                 component={Tabs}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="ProductDetails"
+                component={ProductDetails}
                 options={{
                   headerShown: false,
                 }}

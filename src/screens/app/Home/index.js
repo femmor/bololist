@@ -31,7 +31,11 @@ const Home = ({navigation}) => {
   };
 
   const renderProductItem = ({item}) => {
-    return <ProductHomeItem item={item} />;
+    const onProductPress = product => {
+      navigation.navigate('ProductDetails', {product});
+    };
+
+    return <ProductHomeItem item={item} onPress={() => onProductPress(item)} />;
   };
 
   const onSearch = text => {

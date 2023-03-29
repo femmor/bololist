@@ -1,12 +1,13 @@
 import {Image, Pressable, Text, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
 
-const ProductHomeItem = ({item}) => {
+const ProductHomeItem = ({item, onPress}) => {
   const {title, image, price} = item;
 
   return (
-    <Pressable onPress={() => console.log('pressed')} style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
       <Image
         source={{
           uri: image,
