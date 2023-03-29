@@ -8,3 +8,4 @@ export {default as AuthFooter} from './AuthFooter';
 export {default as AppHeader} from './AppHeader';
 export {default as Category} from './Category';
 export {default as ProductHomeItem} from './ProductHomeItem';
+export {default as FavoriteItem} from './FavoriteItem';

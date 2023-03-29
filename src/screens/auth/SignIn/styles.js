@@ -3,7 +3,6 @@ import {colors} from '../../../utils/colors';
 
 export default StyleSheet.create({
   container: {
-    height: '100%',
     paddingHorizontal: 20,
   },
   termsContainer: {

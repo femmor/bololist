@@ -38,31 +38,30 @@ const Home = ({navigation}) => {
     setKeyword(text);
   };
 
-  // Filter products by category
+  // Filter products by category and keyword
   useEffect(() => {
     const updateProducts = products.filter(
-      product => product?.category === selectedCategory,
+      product =>
+        product?.category === selectedCategory &&
+        product?.title.toLowerCase().includes(keyword.toLowerCase()),
     );
 
-    if (selectedCategory) {
+    if (selectedCategory && keyword) {
       setFilteredProduct(updateProducts);
+    } else if (selectedCategory) {
+      setFilteredProduct(
+        products.filter(product => product?.category === selectedCategory),
+      );
+    } else if (keyword) {
+      setFilteredProduct(
+        products.filter(product =>
+          product?.title.toLowerCase().includes(keyword.toLowerCase()),
+        ),
+      );
     } else {
       setFilteredProduct(products);
     }
-  }, [selectedCategory]);
-
-  // Filter products by keyword
-  useEffect(() => {
-    const updateProducts = products.filter(product =>
-      product?.title.toLowerCase().includes(keyword.toLowerCase()),
-    );
-
-    if (keyword) {
-      setFilteredProduct(updateProducts);
-    } else {
-      setFilteredProduct(filteredProduct);
-    }
-  }, [keyword]);
+  }, [selectedCategory, keyword]);
 
   return (
     <SafeAreaView>

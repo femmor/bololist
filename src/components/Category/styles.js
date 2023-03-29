@@ -4,7 +4,6 @@ import {colors} from '../../utils/colors';
 
 export default StyleSheet.create({
   container: {
-    height: '100%',
     marginHorizontal: 8,
     alignItems: 'center',
     gap: 5,
