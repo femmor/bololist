@@ -1,5 +1,5 @@
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {View, Text, ScrollView, Image, Pressable} from 'react-native';
+import {View, Text, ScrollView, Image, Pressable, Linking} from 'react-native';
 import {Button, ImageCarousel} from '../../../components';
 
 import styles from './styles';
@@ -13,6 +13,19 @@ const ProductDetails = ({navigation, route}) => {
   const {title, image, price, desc, images} = product;
 
   const [isFavorite, setIsFavorite] = useState(false);
+
+  // Contact seller
+  const onContactSeller = () => {
+    // Use Linking to open phone dialer or email client
+
+    // Make a phone call
+    const sellerNumber = '4052126644';
+    Linking.openURL(`tel:${sellerNumber}`);
+
+    // Send an email
+    const sellerEmail = 'femabong@gmail.com';
+    Linking.openURL(`mailto:${sellerEmail}`);
+  };
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -39,10 +52,7 @@ const ProductDetails = ({navigation, route}) => {
           onPress={() => setIsFavorite(!isFavorite)}>
           <Image source={isFavorite ? redHeart : heart} style={styles.heart} />
         </Pressable>
-        <Button
-          title="Contact Seller"
-          onPress={() => console.log('Contact Seller')}
-        />
+        <Button title="Contact Seller" onPress={onContactSeller} />
       </View>
     </SafeAreaView>
   );
