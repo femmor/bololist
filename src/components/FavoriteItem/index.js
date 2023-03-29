@@ -3,12 +3,12 @@ import {Image, Pressable, Text, View} from 'react-native';
 import styles from './styles';
 import deleteIcon from '../../assets/icons/delete.png';
 
-const FavoriteItem = ({product}) => {
-  const {title, image, price} = product;
+const FavoriteItem = ({item, onPress}) => {
+  const {title, image, price} = item;
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => console.log('pressed')}>
+      <Pressable onPress={onPress}>
         <View style={styles.content}>
           <Image
             source={{

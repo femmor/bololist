@@ -7,16 +7,23 @@ import {AppHeader, FavoriteItem} from '../../../components';
 
 import {products} from '../../../data/products';
 
-const Favorite = () => {
+const Favorite = ({navigation}) => {
+  const renderFavoriteProduct = ({item}) => {
+    const onProductPress = () => {
+      navigation.navigate('ProductDetails', {product: item});
+    };
+
+    return <FavoriteItem item={item} onPress={onProductPress} />;
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <AppHeader title="Favorites" />
         <FlatList
           data={products}
-          renderItem={({item}) => <FavoriteItem product={item} />}
+          renderItem={renderFavoriteProduct}
           keyExtractor={item => item?.id.toString()}
-          showsVerticalScrollIndicator={false}
         />
       </View>
     </SafeAreaView>
