@@ -8,7 +8,9 @@ export default StyleSheet.create({
   safe: {
     flex: 1,
   },
-  container: {},
+  container: {
+    position: 'relative',
+  },
   image: {
     width: '100%',
     height: height * 0.4,
@@ -59,4 +61,16 @@ export default StyleSheet.create({
     width: 30,
     height: 30,
   },
+
+  backContainer: {
+    position: 'absolute',
+    top: 30,
+    left: 20,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    backgroundColor: colors.white,
+  },
+
+  back: {},
 });

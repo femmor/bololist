@@ -5,6 +5,7 @@ import {Button} from '../../../components';
 import styles from './styles';
 import redHeart from '../../../assets/icons/heart_red.png';
 import heart from '../../../assets/icons/heart_outline.png';
+import backIcon from '../../../assets/icons/chevron_left.png';
 import {useState} from 'react';
 
 const ProductDetails = ({navigation, route}) => {
@@ -22,6 +23,11 @@ const ProductDetails = ({navigation, route}) => {
           <Text style={styles.price}>{price}</Text>
           <Text style={styles.desc}>{desc}</Text>
         </View>
+        <Pressable
+          style={styles.backContainer}
+          onPress={() => navigation.goBack()}>
+          <Image source={backIcon} style={styles.back} />
+        </Pressable>
       </ScrollView>
       <View style={styles.footer}>
         <Pressable
