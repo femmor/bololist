@@ -1,14 +1,15 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import {colors} from '../../utils/colors';
-
-const {width} = Dimensions.get('screen');
 
 export default StyleSheet.create({
   container: {
     marginHorizontal: 8,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: colors.gray,
+    paddingVertical: 10,
   },
   content: {
     flexDirection: 'row',
