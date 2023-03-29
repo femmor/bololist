@@ -1,6 +1,6 @@
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {View, Text, ScrollView, Image, Pressable} from 'react-native';
-import {Button} from '../../../components';
+import {Button, ImageCarousel} from '../../../components';
 
 import styles from './styles';
 import redHeart from '../../../assets/icons/heart_red.png';
@@ -10,14 +10,18 @@ import {useState} from 'react';
 
 const ProductDetails = ({navigation, route}) => {
   const {product} = route?.params || {};
-  const {title, image, price, desc} = product;
+  const {title, image, price, desc, images} = product;
 
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView style={styles.container}>
-        <Image source={{uri: image}} style={styles.image} />
+        {images && images.length > 0 ? (
+          <ImageCarousel images={images} />
+        ) : (
+          <Image source={{uri: image}} style={styles.image} />
+        )}
         <View style={styles.content}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.price}>{price}</Text>
