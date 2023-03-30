@@ -37,4 +37,14 @@ export default StyleSheet.create({
   helpCenter: {
     marginTop: 40,
   },
+
+  profileInfo: {
+    marginTop: 20,
+  },
+
+  button: {
+    flex: 0,
+    paddingVertical: 8,
+    marginTop: 16,
+  },
 });

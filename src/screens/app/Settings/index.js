@@ -2,13 +2,38 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {View, Text, Image, Pressable, Linking} from 'react-native';
 
 import styles from './styles';
-import {AppHeader, ListItem} from '../../../components';
+import {
+  AppHeader,
+  Button,
+  EditableBox,
+  Input,
+  ListItem,
+} from '../../../components';
 
 import editIcon from '../../../assets/icons/edit_outline.png';
+import {useState} from 'react';
 
 const Settings = ({navigation}) => {
+  const [editMode, setEditMode] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    name: 'David Lobga',
+    email: 'dlobga@gmail.com',
+  });
+
+  const onChangeUserInfo = (key, value) => {
+    setUserInfo({
+      ...userInfo,
+      [key]: value,
+    });
+  };
+
+  const toggleEditMode = () => {
+    setEditMode(!editMode);
+  };
+
   const onEditProfile = () => {
-    console.log('Edit Profile pressed');
+    setEditMode(false);
+    console.log('Profile updated', userInfo);
   };
 
   const onItemPress = () => {
@@ -25,13 +50,42 @@ const Settings = ({navigation}) => {
         <View style={styles.content}>
           <View style={styles.titleContainer}>
             <Text style={styles.subTitle}>Personal Information</Text>
-            <Pressable onPress={onEditProfile}>
+            <Pressable onPress={toggleEditMode}>
               <Image source={editIcon} style={styles.editIcon} />
             </Pressable>
           </View>
 
-          <ListItem title="Bruno Pharm" subTitle="Name" reversed />
-          <ListItem title="bruno123@gmail.com" subTitle="Email" reversed />
+          <View style={styles.profileInfo}>
+            {
+              // If editMode is true, show the input field
+              editMode ? (
+                <EditableBox
+                  title={userInfo.name}
+                  label="Name"
+                  placeholder={userInfo.name}
+                  value={userInfo.name}
+                  onChangeText={value => onChangeUserInfo('name', value)}
+                />
+              ) : (
+                <ListItem
+                  title={userInfo.name}
+                  subTitle="Name"
+                  reversed
+                  stylr={styles.disabled}
+                />
+              )
+            }
+
+            <ListItem title={userInfo.email} subTitle="Email" reversed />
+
+            {editMode ? (
+              <Button
+                title="Save"
+                onPress={onEditProfile}
+                style={styles.button}
+              />
+            ) : null}
+          </View>
 
           <View style={styles.helpCenter}>
             <Text style={styles.subTitle}>Help Center</Text>
