@@ -19,8 +19,8 @@ const ProductDetails = ({navigation, route}) => {
     // Use Linking to open phone dialer or email client
 
     // Make a phone call
-    const sellerNumber = '4052126644';
-    Linking.openURL(`tel:${sellerNumber}`);
+    // const sellerNumber = '4052126644';
+    // Linking.openURL(`tel:${sellerNumber}`);
 
     // Send an email
     const sellerEmail = 'femabong@gmail.com';

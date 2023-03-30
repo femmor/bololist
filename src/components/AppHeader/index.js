@@ -21,7 +21,7 @@ const AppHeader = ({
       ) : null}
       {iconOnly ? null : <Text style={styles.title}>{title}</Text>}
       {showRightIcon ? (
-        <Pressable onPress={rightIconPress}>
+        <Pressable onPress={rightIconPress} style={styles.rightIcon}>
           <Image source={rightIcon} style={styles.image} />
         </Pressable>
       ) : null}

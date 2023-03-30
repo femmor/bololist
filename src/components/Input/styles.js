@@ -10,7 +10,7 @@ export default styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 500,
     marginVertical: 8,
-    color: colors.primary,
+    color: colors.textGray,
   },
   inputContainer: {
     borderWidth: 1,
@@ -26,6 +26,7 @@ export default styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 8,
     paddingVertical: 8,
+    color: colors.textGray,
   },
   eye: {
     tintColor: colors.gray,

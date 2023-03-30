@@ -10,8 +10,8 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
   },
   image: {
-    width: 18,
-    height: 18,
+    width: 20,
+    height: 20,
   },
   title: {
     fontSize: 14,
@@ -19,5 +19,8 @@ export default StyleSheet.create({
     textAlign: 'center',
     flex: 1,
     color: colors.darkGray,
+  },
+  rightIcon: {
+    marginRight: 10,
   },
 });

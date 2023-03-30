@@ -7,7 +7,7 @@ const {height, width} = Dimensions.get('window');
 export default StyleSheet.create({
   image: {
     width: width,
-    height: height * 0.4,
+    height: height * 0.5,
   },
   pagination: {
     flexDirection: 'row',

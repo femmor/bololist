@@ -11,5 +11,5 @@ export const colors = {
   darkPurple: '#1d1128',
   googleRed: '#C64B36',
   googleBlue: '#4081EC',
-  textGray: '#606060',
+  textGray: '#aaaaaa',
 };

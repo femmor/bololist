@@ -1,10 +1,14 @@
 import {Image, Pressable, Text, View} from 'react-native';
 
 import styles from './styles';
-import deleteIcon from '../../assets/icons/delete.png';
+import cancelIcon from '../../assets/icons/cancel_outline.png';
 
 const FavoriteItem = ({item, onPress}) => {
   const {title, image, price} = item;
+
+  const onCancelPress = () => {
+    console.log('cancel pressed');
+  };
 
   return (
     <View style={styles.container}>
@@ -22,8 +26,8 @@ const FavoriteItem = ({item, onPress}) => {
           </View>
         </View>
       </Pressable>
-      <Pressable onPress={() => console.log('delete pressed')}>
-        <Image source={deleteIcon} style={styles.deleteIcon} />
+      <Pressable onPress={onCancelPress}>
+        <Image source={cancelIcon} style={styles.cancelIcon} />
       </Pressable>
     </View>
   );

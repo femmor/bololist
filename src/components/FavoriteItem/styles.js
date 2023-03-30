@@ -38,8 +38,9 @@ export default StyleSheet.create({
   textContainer: {
     gap: 3,
   },
-  deleteIcon: {
-    width: 20,
-    height: 20,
+  cancelIcon: {
+    width: 18,
+    height: 18,
+    marginVertical: 5,
   },
 });
