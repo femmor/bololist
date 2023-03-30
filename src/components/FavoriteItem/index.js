@@ -1,9 +1,8 @@
 import {Image, Pressable, Text, View} from 'react-native';
 
 import styles from './styles';
-import cancelIcon from '../../assets/icons/cancel_outline.png';
 
-const FavoriteItem = ({item, onPress}) => {
+const FavoriteItem = ({item, onPress, icon, onIconPress}) => {
   const {title, image, price} = item;
 
   const onCancelPress = () => {
@@ -26,8 +25,8 @@ const FavoriteItem = ({item, onPress}) => {
           </View>
         </View>
       </Pressable>
-      <Pressable onPress={onCancelPress}>
-        <Image source={cancelIcon} style={styles.cancelIcon} />
+      <Pressable onPress={onIconPress}>
+        <Image source={icon} style={styles.cancelIcon} />
       </Pressable>
     </View>
   );

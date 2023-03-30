@@ -46,11 +46,14 @@ export default StyleSheet.create({
     gap: 12,
     shadowColor: colors.black,
     shadowOffset: {
-      width: 1,
-      height: 2,
+      width: 0,
+      height: 3,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    marginVertical: 12,
+    borderRadius: 4,
+    elevation: 7,
   },
   favorite: {
     backgroundColor: colors.gray,

@@ -26,8 +26,8 @@ export default styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 18,
-    fontWeight: 600,
+    fontSize: 16,
+    fontWeight: 500,
     color: colors.primary,
   },
 
@@ -39,5 +39,6 @@ export default styles = StyleSheet.create({
   titleReversed: {
     fontSize: 14,
     fontWeight: 'normal',
+    color: colors.primary,
   },
 });

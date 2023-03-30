@@ -1,5 +1,4 @@
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {ScrollView} from 'react-native';
 import {View, Text} from 'react-native';
 
 import styles from './styles';

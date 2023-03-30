@@ -8,8 +8,10 @@ import {Image} from 'react-native';
 import {
   Favorite,
   Home,
+  MyListings,
   ProductDetails,
   Profile,
+  Settings,
   SignIn,
   SignUp,
   SplashScreen,
@@ -34,6 +36,32 @@ const IOS_CLIENT_ID = Config.IOS_CLIENT_ID;
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const ProfileStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Profile"
+      component={Profile}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <Stack.Screen
+      name="Settings"
+      component={Settings}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <Stack.Screen
+      name="MyListings"
+      component={MyListings}
+      options={{
+        headerShown: false,
+      }}
+    />
+  </Stack.Navigator>
+);
+
 const Tabs = () => (
   <Tab.Navigator
     screenOptions={({route}) => ({
@@ -42,7 +70,7 @@ const Tabs = () => (
 
         if (route.name === 'Home') {
           icon = focused ? homeSolid : homeOutline;
-        } else if (route.name === 'Profile') {
+        } else if (route.name === 'ProfileStack') {
           icon = focused ? userSolid : userOutline;
         } else if (route.name === 'Favorite') {
           icon = focused ? favoriteSolid : favoriteOutline;
@@ -69,7 +97,7 @@ const Tabs = () => (
     })}>
     <Tab.Screen name="Home" component={Home} />
     <Tab.Screen name="Favorite" component={Favorite} />
-    <Tab.Screen name="Profile" component={Profile} />
+    <Tab.Screen name="ProfileStack" component={ProfileStack} />
   </Tab.Navigator>
 );
 
@@ -108,6 +136,13 @@ const App = () => {
               <Stack.Screen
                 name="ProductDetails"
                 component={ProductDetails}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="Settings"
+                component={Settings}
                 options={{
                   headerShown: false,
                 }}

@@ -6,24 +6,24 @@ import styles from './styles';
 import {AppHeader, FavoriteItem} from '../../../components';
 
 import {products} from '../../../data/products';
-import cancelIcon from '../../../assets/icons/cancel_outline.png';
+import deleteIcon from '../../../assets/icons/delete.png';
 
-const Favorite = ({navigation}) => {
+const MyListings = ({navigation}) => {
   const renderFavoriteProduct = ({item}) => {
     const onProductPress = () => {
       navigation.navigate('ProductDetails', {product: item});
     };
 
-    const onCancelPress = () => {
-      console.log('Cancel pressed');
+    const onDeletePress = () => {
+      console.log('Delete pressed');
     };
 
     return (
       <FavoriteItem
         item={item}
         onPress={onProductPress}
-        icon={cancelIcon}
-        onIconPress={onCancelPress}
+        icon={deleteIcon}
+        onIconPress={onDeletePress}
       />
     );
   };
@@ -31,7 +31,7 @@ const Favorite = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <AppHeader title="Favorites" />
+        <AppHeader title="My Listings" />
         <FlatList
           data={products}
           renderItem={renderFavoriteProduct}
@@ -41,4 +41,4 @@ const Favorite = ({navigation}) => {
     </SafeAreaView>
   );
 };
-export default Favorite;
+export default MyListings;
