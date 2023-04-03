@@ -13,43 +13,58 @@ export default StyleSheet.create({
     width: 20,
     height: 20,
   },
-  content: {
-    flex: 1,
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.lightGray,
   },
-  buttonContainer: {},
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.black,
-    marginBottom: 12,
-  },
-  subTitle: {
-    fontSize: 14,
-    fontWeight: 'normal',
-    color: colors.textGray,
-  },
-  titleContainer: {
+  imageRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
-    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: 4,
   },
-  editIcon: {
+  images: {
+    flexDirection: 'row',
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
+  },
+  imageItem: {
+    flexDirection: 'row',
+  },
+  cancelIcon: {
     width: 20,
     height: 20,
+    marginLeft: -16,
+    marginTop: -5,
   },
-
-  helpCenter: {
-    marginTop: 40,
-  },
-
-  profileInfo: {
-    marginTop: 20,
-  },
-
-  button: {
-    flex: 0,
-    paddingVertical: 8,
+  uploadContainer: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.lightGray,
+    borderStyle: 'dashed',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 16,
+  },
+  uploadCircle: {
+    width: 32,
+    height: 32,
+    borderRadius: 25,
+    backgroundColor: colors.lightGray,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  uploadPlus: {
+    fontSize: 24,
+    fontWeight: '500',
+    color: colors.white,
+    marginBottom: 2,
+    marginLeft: 1,
   },
 });
