@@ -2,15 +2,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {View, Text, Image, Pressable, Linking} from 'react-native';
 
 import styles from './styles';
-import {
-  AppHeader,
-  Button,
-  EditableBox,
-  Input,
-  ListItem,
-} from '../../../components';
+import {AppHeader, Button, EditableBox, ListItem} from '../../../components';
 
 import editIcon from '../../../assets/icons/edit_outline.png';
+import backIcon from '../../../assets/icons/back_outline.png';
 import {useState} from 'react';
 
 const Settings = ({navigation}) => {
@@ -45,7 +40,12 @@ const Settings = ({navigation}) => {
       style={{
         flex: 1,
       }}>
-      <AppHeader title="Settings" />
+      <AppHeader
+        title="Settings"
+        showLeftIcon
+        leftIcon={backIcon}
+        leftIconPress={() => navigation.goBack()}
+      />
       <View style={styles.container}>
         <View style={styles.content}>
           <View style={styles.titleContainer}>

@@ -11,11 +11,12 @@ const AppHeader = ({
   showLeftIcon,
   showRightIcon,
   iconOnly,
+  leftIconStyle,
 }) => {
   return (
     <View style={styles.container}>
       {showLeftIcon ? (
-        <Pressable onPress={leftIconPress}>
+        <Pressable onPress={leftIconPress} style={leftIconStyle}>
           <Image source={leftIcon} style={styles.image} />
         </Pressable>
       ) : null}

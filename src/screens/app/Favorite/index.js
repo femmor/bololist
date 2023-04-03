@@ -7,6 +7,7 @@ import {AppHeader, FavoriteItem} from '../../../components';
 
 import {products} from '../../../data/products';
 import cancelIcon from '../../../assets/icons/cancel_outline.png';
+import backIcon from '../../../assets/icons/back_outline.png';
 
 const Favorite = ({navigation}) => {
   const renderFavoriteProduct = ({item}) => {
@@ -31,7 +32,12 @@ const Favorite = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <AppHeader title="Favorites" />
+        <AppHeader
+          title="Favorites"
+          showLeftIcon
+          leftIcon={backIcon}
+          leftIconPress={() => navigation.goBack()}
+        />
         <FlatList
           data={products}
           renderItem={renderFavoriteProduct}

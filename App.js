@@ -6,6 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {Image} from 'react-native';
 import {
+  CreateListing,
   Favorite,
   Home,
   MyListings,
@@ -55,6 +56,13 @@ const ProfileStack = () => (
     <Stack.Screen
       name="MyListings"
       component={MyListings}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <Stack.Screen
+      name="CreateListing"
+      component={CreateListing}
       options={{
         headerShown: false,
       }}
